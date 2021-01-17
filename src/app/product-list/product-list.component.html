@@ -1,0 +1,38 @@
+<h2>Click to dial and display call script</h2>
+
+<!-- a list of prospects -->
+<div *ngFor="let product of products">
+
+  
+  <h3>
+    <!--makes hoverover somehow and links the prospects names-->
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    NOTE: {{ product.description }}
+  </p>
+
+<button (click)="share()"
+  (notify)="onNotify()">
+  Call
+</button>
+
+<app-product-alerts
+  [product]="product" 
+  (notify)="onNotify()">
+</app-product-alerts>
+
+</div>
+
+
+
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
